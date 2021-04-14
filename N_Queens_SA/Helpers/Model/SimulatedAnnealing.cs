@@ -8,18 +8,26 @@ namespace N_Queens_AI.Helpers.Model
 {
     public class SimulatedAnnealing
     {
-        ParametersOfSA parameterSA;
-        SA_Queens queensUtil;
-        public SimulatedAnnealing(ParametersOfSolver  parameter) {
-
+        public ParametersOfSA parameterSA;
+        SA_Queens QueensUtil;
+        public double getEnergySystem() {
+            return parameterSA.currentSystemEnergy;
+        }
+        public double getTemperatureSystem()
+        {
+            return parameterSA.currentSystemTemperature;
+        }
+        public SimulatedAnnealing(ParametersOfSolver  parameter, SA_Queens queensUtil) {
+            this.QueensUtil = queensUtil;
             parameterSA = new ParametersOfSA();
+            parameterSA.numberQueens = parameter.numberQueens;
             parameterSA.coolingFactor = parameter.coolingFactor;
             parameterSA.stabilizingFactor = parameter.stabilizingFactor;
             parameterSA.freezingTemperature = parameter.freezingTemperature;
             parameterSA.generateNewSolution = parameter.generateNewSolution;
             parameterSA.generateNeighbor = parameter.generateNeighbor;
             parameterSA.acceptNeighbor = parameter.acceptNeighbor;
-            parameterSA.currentSystemEnergy = parameterSA.generateNewSolution;
+            parameterSA.currentSystemEnergy = QueensUtil.generateRandomState(parameterSA.numberQueens);
             parameterSA.currentSystemTemperature = parameter.initialTemperature;
             parameterSA.currentStabilizer = parameter.initialstabilizer;
 
@@ -29,17 +37,19 @@ namespace N_Queens_AI.Helpers.Model
             {
                 for (int i = 0; i < parameterSA.currentStabilizer; i++)
                 {
-                    double newEnergy = parameterSA.generateNewSolution;
+                    Console.WriteLine("-------------Tentativa SA---------------");
+                    double newEnergy = QueensUtil.constructNeighbor();
                     double energyDelta = newEnergy - parameterSA.currentSystemEnergy;
                     if (probability(parameterSA.currentSystemEnergy, energyDelta))
                     {
-                        queensUtil.registerNeighborAsCurrent();
+                        QueensUtil.registerNeighborAsCurrent();
                         parameterSA.currentSystemEnergy = newEnergy;
 
                     }
                 }
                 parameterSA.currentSystemTemperature = parameterSA.currentSystemTemperature - parameterSA.coolingFactor;
                 parameterSA.currentStabilizer = parameterSA.currentStabilizer * parameterSA.stabilizingFactor;
+                Console.WriteLine("---------**---- currentStabilizer ---**------------");
                 return false;
             }
             parameterSA.currentSystemTemperature = parameterSA.freezingTemperature;

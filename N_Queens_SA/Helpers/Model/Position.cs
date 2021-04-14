@@ -9,7 +9,7 @@ namespace N_Queens_AI.Helpers.Model
     {
         public int coordY { get; set; }
         public int coordX { get; set; }
-        public int value { get; set; }
+        public bool conflito { get; set; } = false;
 
     }
 }

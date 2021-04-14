@@ -1,0 +1,51 @@
+﻿
+<div>
+    <h6>Parametros de Resolução</h6>
+    <div>
+        <div style="width: 90%">
+            <div Style="width:30%; display:inline-block;">
+                Definir um numero de Rainhas @numberQueens
+            </div>
+            <div Style="width:30%; display:inline-block;">
+                <Slider TValue="int" Value="@numberQueens" ValueChanged="@numberQueensDefined" Min="4" Max="16" />
+            </div>
+            <div>
+                <div Style="width:30%; display:inline-block;">
+                    Cooling Factor
+                    <input type="number" @bind-value="@coolingFactor" step="0.0001" min="0" max="100"/>
+                </div>
+                <div Style="width:30%; display:inline-block;">
+                    Stabilizing Factor
+                    <input type="number" @bind-value="@stabilizingFactor" step="0.0001" min="0" max="100"/>
+                </div>
+                <div Style="width:30%; display:inline-block;">
+                    Freezing Temperature
+                    <input type="number" @bind-value="@freezingTemperature" step="0.0001" min="0" max="100"/>
+                </div>
+            </div>
+            <div>
+                <div Style="width:30%; display:inline-block;">
+                    Initial Temperature
+                    <input type="number" @bind-value="@initialTemperature" step="0.0001" min="0" max="100"/>
+                </div>
+                <div Style="width:30%; display:inline-block;">
+                    Initial Stabilizer
+                    <input type="number" @bind-value="@initialstabilizer" step="0.0001" min="0" max="100"/>
+                </div>
+                <div Style="width:30%; height:30%; display:inline-block;">
+                    <input class="btn-block" type="button" value="Gerar Combinação" @onclick="@definedStateSolver" />
+                    <input class="btn-danger" type="button" style="align-content:center" value="Start Solver" @onclick="@DefinedStartSolver" />
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+

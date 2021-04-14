@@ -1,0 +1,15 @@
+﻿
+<h3>N_Queens Solver Têmpera Simulada</h3>
+
+@if (!parameterSolver.Equals(null))
+{
+    <ParameterField numberQueens="parameterSolver.numberQueens" coolingFactor="parameterSolver.coolingFactor" stabilizingFactor="parameterSolver.stabilizingFactor" freezingTemperature="parameterSolver.freezingTemperature"
+                    initialstabilizer="parameterSolver.initialstabilizer" initialTemperature="parameterSolver.initialTemperature" StartUpdate="newDefinedParameter" StarSolver="StartSolverGame"/>
+
+}
+@if (!queens.Equals(null))
+{
+    <div style="width:25%">
+        <TabuleiroXadrez queens="queens"></TabuleiroXadrez>
+    </div>
+}

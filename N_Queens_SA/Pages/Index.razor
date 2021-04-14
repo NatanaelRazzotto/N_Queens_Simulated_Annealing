@@ -1,9 +1,15 @@
 ﻿@page "/"
+@using N_Queens_SA.ComponenentsSolver.QueensXadrez
 
-<h1>Hello, world!</h1>
+<QueensTabuleiro parameterSolver="parameterSolver"></QueensTabuleiro>
 
-Welcome to your new app.
+@code{
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    public ParametersOfSolver parameterSolver { get; set; }
 
-<Button Color="Color.Secondary">Secondary</Button>
+    protected async override Task OnInitializedAsync()
+    {
+        parameterSolver = new ParametersOfSolver(4, 35.0, 35.0, 0.05, 1.005, 0.0);
+        base.OnInitializedAsync();
+    }
+}

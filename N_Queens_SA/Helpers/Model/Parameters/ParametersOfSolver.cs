@@ -11,8 +11,8 @@ namespace N_Queens_AI.Helpers.Model
         public double initialstabilizer { get; set; } = 0.0;
 
 
-        public ParametersOfSolver (int numberQueens, float initialTemperature, float initialstabilizer, float coolingFactor,
-                                    float stabilizingFactor, float freezingTemperature)
+        public ParametersOfSolver (int numberQueens, double initialTemperature, double initialstabilizer, double coolingFactor,
+                                    double stabilizingFactor, double freezingTemperature)
          {
             this.numberQueens = numberQueens; 
             this.initialTemperature = initialTemperature;

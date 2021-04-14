@@ -13,6 +13,6 @@ namespace N_Queens_AI.Helpers.Model
         public double freezingTemperature { get; set; } = 0.0;//
         public int generateNewSolution { get; set; } = 0;//
         public int generateNeighbor { get; set; } = 0;//
-        public int acceptNeighbor { get; set; } = 0;//
+        public bool acceptNeighbor { get; set; } = false;//
     }
 }

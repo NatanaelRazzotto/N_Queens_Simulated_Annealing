@@ -42,9 +42,32 @@ a, .btn-link {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+/* Chess problem */
+
+.chess-board {
+    border: solid 1px rgba(100,100,100,0.4);
+    box-shadow: 0 2px 4px rgba(100,100,100,0.2);
+    background: #fdfdfd;
+    margin: 5% 10% 0% 10%;
+    padding: 1%;
+}
+
+.chess-board-inner {
+    background: white;
+    border-top: solid 1px rgba(50,50,50,0.5);
+    border-left: solid 1px rgba(50,50,50,0.5);
+    display: grid;
+}
+
+.chess-square {
+    border-bottom: solid 1px rgba(50,50,50,0.5);
+    border-right: solid 1px rgba(50,50,50,0.5);
+}
+

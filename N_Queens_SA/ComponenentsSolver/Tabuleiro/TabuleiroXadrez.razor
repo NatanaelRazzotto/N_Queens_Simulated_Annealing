@@ -1,0 +1,21 @@
+﻿<h3>TabuleiroXadrez</h3>
+
+<div>
+    <Card>
+          <div class="chess-board-inner" style="grid-template-columns: repeat(@numberOfQueens, 1fr);">
+              @for (int i = 0; i < @numberOfQueens; i++)
+               {
+                    @for (int j = 0; j < @numberOfQueens; j++)
+                     {
+                        <QuadradoXadrez 
+                                row="@i"
+                                column="@j"
+                                HasQueen="queens.Any(x => x.coordY == i && x.coordX == j)"
+                                IsInvalid="queens.Any(x => x.coordY == i && x.coordX == j && x.conflito == true)">
+                            
+                        </QuadradoXadrez>
+                     }
+               }
+          </div>
+    </Card>
+</div>
